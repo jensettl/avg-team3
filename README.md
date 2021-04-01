@@ -35,9 +35,9 @@ Alle Informationen stammen aus dem [GitHub Workshop](https://simonkienzler.githu
 
 ## GPRC mit Node
 
-Dieser Absatz umreist das gelernte zu gRPC, genaueres findet sich auf der offiziellen Website [grpc.io]([grpc.io](https://grpc.io/docs/languages/node/quickstart/)).
+Dieser Absatz umreist das gelernte zu gRPC, genaueres findet sich auf der offiziellen Website [grpc.io](https://grpc.io/docs/languages/node/quickstart/)).
 
-Im Order /protos befindet sich eine **Protobuf** Datei die Struktur des Services mit all seinen Funktionen definiert.
+Im Order /examples/protos befindet sich eine **Protobuf** Datei die Struktur des Services mit all seinen Funktionen definiert.
 
 ```js
 service Greeter {
