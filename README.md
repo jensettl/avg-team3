@@ -35,3 +35,22 @@ Alle Informationen stammen aus dem [GitHub Workshop](https://simonkienzler.githu
 
 ## GPRC mit Node
 
+Dieser Absatz umreist das gelernte zu gRPC, genaueres findet sich auf der offiziellen Website [grpc.io]([grpc.io](https://grpc.io/docs/languages/node/quickstart/)).
+
+Im Order /protos befindet sich eine **Protobuf** Datei die Struktur des Services mit all seinen Funktionen definiert.
+
+```js
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
+```
+
+>Den Language Guide zu proto3 findet ihr [hier](https://developers.google.com/protocol-buffers/docs/proto3).
+
+* Mit `node server.js` kann der Server aus dem Terminal gestartet werden
+
+* Mit `node client.js` kann der Aufruf des Clients auf den Server gestartet werden.
+
+* Mit dem Aufruf des Protobuf Compiler `protoc --proto_path=protos --proto_path=third_party --js_out=library=gen,binary:. protos/<protoDateiName>.proto` kann aus der proto-Datei die Basis für den Server als JavaScript Code generiert werden.
