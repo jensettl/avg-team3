@@ -30,3 +30,8 @@ Alle Informationen stammen aus dem [GitHub Workshop](https://simonkienzler.githu
 * Branches
 
 > Diese Schritte sind einfacher mit der Verknüpfung des Repos mit der kostenlosen Software GitHub Desktop ([hier](https://desktop.github.com/)).
+
+---
+
+## GPRC mit Node
+
