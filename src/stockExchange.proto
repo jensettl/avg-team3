@@ -2,11 +2,11 @@
 syntax = "proto3";
 
 //Package Definition
-package StockExchangePackage;
+package stockExchangePackage;
 
 service CustomerService {
     // Unary Call
-    rpc GetStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
+    rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
 }
 
 message StockExchangeLookUpModel {

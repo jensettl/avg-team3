@@ -9,10 +9,10 @@ server.bind("0.0.0.0:50051",grpc.ServerCredentials.createInsecure());
 
 server.addService(stockExchangePackage.CustomerService.service, 
     {
-        "GetStockExchangeInfo": GetStockExchangeInfo,
+        "getStockExchangeInfo": getStockExchangeInfo,
     });
 server.start();
 
-function GetStockExchangeInfo (call, callback){
+function getStockExchangeInfo (call, callback){
     console.log(call);
 }
