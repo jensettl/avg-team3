@@ -1,5 +1,5 @@
 # AVG-Team3
-Dieses Repository wurde für das Modul Anwendung von Geschäftsprozesse erstellt. Es enhält den Code für eine Proo-Datei anhand der ein gRPC-Server generiert wurde. Die Anwendungslogik haben wir auf Basis des Anwendungsfalls entwickelt. Die Anfragen des Clients an den Server sollen sowohl Unary als auch als Stream beantwortet werden können.
+Dieses Repository wurde für das Modul Anwendung von Geschäftsprozesse erstellt. Es enhält den Code für eine Proto-Datei anhand der ein gRPC-Server generiert wurde. Die Anwendungslogik haben wir auf Basis des Anwendungsfalls entwickelt. Die Anfragen des Clients an den Server sollen sowohl Unary als auch als Stream beantwortet werden können.
 
 Infos zu Erstellung und Bearbeitung einer **Markdown Datei** findet ihr [hier](https://docs.microsoft.com/en-us/azure/devops/project/wiki/markdown-guidance?view=azure-devops).
 
@@ -30,12 +30,13 @@ Alle Informationen stammen aus dem [GitHub Workshop](https://simonkienzler.githu
 * Branches
 
 > Diese Schritte sind einfacher mit der Verknüpfung des Repos mit der kostenlosen Software GitHub Desktop ([hier](https://desktop.github.com/)).
+> Hier müssen lediglich i. die Changes gestaged werden ii. eine Commit Message erstellt werden und iii. per Knopdruck gepushed werden (branch oder origin).
 
 ---
 
 ## GPRC mit Node
 
-Dieser Absatz umreist das gelernte zu gRPC, genaueres findet sich auf der offiziellen Website [grpc.io](https://grpc.io/docs/languages/node/quickstart/)).
+Dieser Absatz umreist das gelernte zu gRPC, genaueres findet sich auf der offiziellen Website [grpc.io](https://grpc.io/docs/languages/node/quickstart/).
 
 Im Order /examples/protos befindet sich eine **Protobuf** Datei die Struktur des Services mit all seinen Funktionen definiert.
 
