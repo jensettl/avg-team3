@@ -13,6 +13,15 @@ server.addService(stockExchangePackage.CustomerService.service,
     });
 server.start();
 
+
+
 function getStockExchangeInfo (call, callback){
-    console.log(call);
+    console.log(call.request);
+    const tradeItem = {
+        "id" : call.request.tradeNr,
+        "name" : "test1",
+        "typ" : "Wertpapier",
+        "wert" : 12.5
+    }
+    callback(null, tradeItem)
 }
