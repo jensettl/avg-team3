@@ -8,7 +8,10 @@ service CustomerService {
     // Unary Call
     rpc createStockExchange (StockExchangeModel) returns (StockExchangeModel);
     rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
+    rpc getTrades (voidNoParam) returns (stream StockExchangeModel);
 }
+
+message voidNoParam {}
 
 message StockExchangeLookUpModel {
     int32 tradeNr = 4;
