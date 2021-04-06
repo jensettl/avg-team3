@@ -21,10 +21,10 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-const call = client.getTrades();
-call.on("data",item => {
-    sleep(2000).then(() => { console.log("received item from server" + JSON.stringify(item)); });
+// const call = client.getTrades();
+// call.on("data",item => {
+//     sleep(2000).then(() => { console.log("received item from server" + JSON.stringify(item)); });
     
-})
+// })
 
-call.on("end", e => console.log("server done!"))
+// call.on("end", e => console.log("server done!"))
