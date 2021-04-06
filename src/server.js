@@ -13,38 +13,29 @@ server.addService(stockExchangePackage.CustomerService.service,
     });
 server.start();
 
-
+const tradeItems = [
+    {
+        "id":1,
+        "name": "beispiel1",
+        "typ": "wertpapier",
+        "wert": 17.5
+    },
+    {
+        "id": 2, 
+        "name": "beispiel2", 
+        "typ":"aktie",
+        "wert": 21.3
+    },
+    {
+        "id": 3, 
+        "name": "beispiel3",
+        "typ": "Fond",
+        "wert": 121.6
+    }
+];
 
 function getStockExchangeInfo (call, callback){
     console.log(call.request);
-    // const tradeItem = {
-    //     "id" : call.request.tradeNr,
-    //     "name" : "test1",
-    //     "typ" : "Wertpapier",
-    //     "wert" : 12.5
-    // }
-    // callback(null, tradeItem)
-
-    
-    if(call.request.tradeNr == 1)
-        callback(null, {
-            "id":1,
-            "name": "beispiel1",
-            "typ": "wertpapier",
-            "wert": 17.5})
-    if(call.request.tradeNr == 2)
-        callback(null, {
-            "id": 2, 
-            "name": "beispiel2", 
-            "typ":"aktie",
-            "wert": 21.3
-        })
-    else
-        callback(null, {
-            "id":call.request.tradeNr, 
-            "name": "beispiel3",
-            "typ": "Fond",
-            "wert": 121.6})
-    
-    
+        
+    callback(null, tradeItems[call.request.tradeNr - 1]);
 }
