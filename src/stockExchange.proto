@@ -7,7 +7,10 @@ package stockExchangePackage;
 service CustomerService {
     // Unary Call
     rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
+    rpc getTrades (voidNoParam) returns (stream StockExchangeModel);
 }
+
+message voidNoParam {}
 
 message StockExchangeLookUpModel {
     int32 tradeNr = 4;
@@ -18,5 +21,4 @@ message StockExchangeModel {
     string name = 2;
     string typ = 3;
     double wert = 4;
-    // string beschreibung = 4;
 }

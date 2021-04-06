@@ -10,6 +10,7 @@ server.bind("0.0.0.0:50051",grpc.ServerCredentials.createInsecure());
 server.addService(stockExchangePackage.CustomerService.service, 
     {
         "getStockExchangeInfo": getStockExchangeInfo,
+        "getTrades": getTrades
     });
 server.start();
 
@@ -44,4 +45,9 @@ function getStockExchangeInfo (call, callback){
     }
         
     callback(null, tradeItems[call.request.tradeNr - 1]);
+}
+
+function getTrades (call, callback) {
+    tradeItems.forEach(t => call.write(t));
+    call.end();
 }
