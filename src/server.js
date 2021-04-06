@@ -17,18 +17,18 @@ server.start();
 
 const tradeItems = require("./tradeItems.json")
 
-function createStockExchange(call, callback) {
-    const tradeItems = {
+function createStockExchange (call, callback) {
+    const tradeItem = {
         "id": tradeItems.length + 1,
         "name": call.request.name,
         "typ": call.request.typ,
         "wert": call.request.wert
     }
-    tradeItems.push(tradeItems);
+    tradeItems.push(tradeItem);
     callback(null, tradeItem);
 }
 
-const tradeItems = require("./tradeItems.json")
+// const tradeItems = require("./tradeItems.json")
 
 function getStockExchangeInfo (call, callback){
     console.log(call.request);
@@ -37,7 +37,7 @@ function getStockExchangeInfo (call, callback){
     {
         console.error("Börsengeschäft mit der angegebenen Trade-Nr existiert nicht!")
         // callback(new Error("Argument of type number is expected."));
-        // return;
+        return;
     }
         
     callback(null, tradeItems[call.request.tradeNr - 1]);
@@ -45,5 +45,5 @@ function getStockExchangeInfo (call, callback){
 
 function getTrades (call, callback) {
     tradeItems.forEach(t => call.write(t));
-    call.end();
+    // call.end();
 }
