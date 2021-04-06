@@ -36,6 +36,12 @@ const tradeItems = [
 
 function getStockExchangeInfo (call, callback){
     console.log(call.request);
+    
+    if(call.request.tradeNr > tradeItems.length) 
+    {
+        callback(new Error("Argument of type number is expected."));
+        return;
+    }
         
     callback(null, tradeItems[call.request.tradeNr - 1]);
 }
