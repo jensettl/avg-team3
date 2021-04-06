@@ -8,7 +8,7 @@ service CustomerService {
     rpc createStockExchange (StockExchangeModel) returns (StockExchangeModel);
     // Unary Call
     rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
-    // server streaming
+    // Server Streaming
     rpc getTrades (voidNoParam) returns (stream StockExchangeModel);
 }
 
