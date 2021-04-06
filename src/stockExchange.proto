@@ -5,15 +5,17 @@ syntax = "proto3";
 package stockExchangePackage;
 
 service CustomerService {
+    rpc createStockExchange (StockExchangeModel) returns (StockExchangeModel);
     // Unary Call
     rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
+    // server streaming
     rpc getTrades (voidNoParam) returns (stream StockExchangeModel);
 }
 
 message voidNoParam {}
 
 message StockExchangeLookUpModel {
-    int32 tradeNr = 4;
+    int32 tradeNr = 1;
 }
 
 message StockExchangeModel {
