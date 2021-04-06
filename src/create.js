@@ -22,21 +22,3 @@ client.createStockExchange({
     console.log("Received from Server " + JSON.stringify(response))
 
 });
-
-/*
-client.readGeschaefte({}, 
-    (err, response) => {
-
-    console.log("Received from Server " + JSON.stringify(response))
-});
-*/
-
-/*
-const call = client.readGeschaefteStream();
-call.on("data", item => {
-    console.log("received item from server " + JSON.stringify(item))
-});
-
-call.on("end", e => console.log("server done!"));
-
-*/

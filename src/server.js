@@ -7,6 +7,8 @@ const stockExchangePackage = grpcObject.stockExchangePackage;
 const server = new grpc.Server();
 server.bind("0.0.0.0:50051",grpc.ServerCredentials.createInsecure());
 
+const eventQueue = [{}];
+
 server.addService(stockExchangePackage.CustomerService.service, 
     {
         "createStockExchange": createStockExchange,
@@ -25,10 +27,9 @@ function createStockExchange (call, callback) {
         "wert": call.request.wert
     }
     tradeItems.push(tradeItem);
+    eventQueue.push = function() {Array.prototype.push.apply(this, tradeItem); getTrades();};
     callback(null, tradeItem);
 }
-
-// const tradeItems = require("./tradeItems.json")
 
 function getStockExchangeInfo (call, callback){
     console.log(call.request);
@@ -45,5 +46,7 @@ function getStockExchangeInfo (call, callback){
 
 function getTrades (call, callback) {
     tradeItems.forEach(t => call.write(t));
-    // call.end();
+    call.end();
+    
+    // callback(null, eventQueue[eventQueue.length]);
 }
