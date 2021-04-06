@@ -1,0 +1,23 @@
+// Syntax
+syntax = "proto3";
+
+//Package Definition
+package stockExchangePackage;
+
+service CustomerService {
+    // Unary Call
+    rpc createStockExchange (StockExchangeModel) returns (StockExchangeModel);
+    rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
+}
+
+message StockExchangeLookUpModel {
+    int32 tradeNr = 4;
+}
+
+message StockExchangeModel {
+    int32 id = 1;
+    string name = 2;
+    string typ = 3;
+    double wert = 4;
+    // string beschreibung = 4;
+}
