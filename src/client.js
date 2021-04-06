@@ -6,13 +6,30 @@ const stockExchangePackage = grpcObject.stockExchangePackage;
 
 const client = new stockExchangePackage.CustomerService("localhost:50051", grpc.credentials.createInsecure());
 
+const changeType = process.argv[2];
 // Client Aufruf mit Parameter
-const text = process.argv[2];
+const text = process.argv[3];
 
-client.getStockExchangeInfo(
-    {
-        "tradeNr": text
-    },
-    (err, response) => {
-        console.log("Received from Server " + JSON.stringify(response))
-});
+switch(changeType){
+    case "1": 
+        client.getStockExchangeInfo(
+            {
+                "tradeNr": text
+            },
+            (err, response) => {
+                console.log("Received from Server " + JSON.stringify(response))
+        });
+        break;
+    case "2":
+        const call = client.getTrades();
+            call.on("data",item => {
+                // sleep(2000).then(() => { console.log("received item from server" + JSON.stringify(item)); });
+                console.log("received item from server" + JSON.stringify(item));
+            })
+
+            call.on("end", e => console.log("server done!"))    
+}
+
+
+
+
