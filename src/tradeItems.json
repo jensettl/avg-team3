@@ -2,13 +2,13 @@
     {
         "id":1,
         "name": "beispiel1",
-        "typ": "wertpapier",
+        "typ": "Wertpapier",
         "wert": 17.5
     },
     {
         "id": 2, 
         "name": "beispiel2", 
-        "typ":"aktie",
+        "typ":"Aktie",
         "wert": 21.3
     },
     {
