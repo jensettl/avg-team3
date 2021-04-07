@@ -1,3 +1,4 @@
+// Notwendige Module laden und mit protoLoader die .proto Datei laden
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 const packageDef = protoLoader.loadSync("stockExchange.proto", {});
@@ -7,8 +8,7 @@ const stockExchangePackage = grpcObject.stockExchangePackage;
 const server = new grpc.Server();
 server.bind("0.0.0.0:50051",grpc.ServerCredentials.createInsecure());
 
-const eventQueue = [{}];
-
+// Services die in der Protodatei definiert wurden spezifizieren und Funktionen zuordnen.
 server.addService(stockExchangePackage.CustomerService.service, 
     {
         "createStockExchange": createStockExchange,
@@ -17,8 +17,13 @@ server.addService(stockExchangePackage.CustomerService.service,
     });
 server.start();
 
+// Trades-Datenbank als JSON Array laden
 const tradeItems = require("./tradeItems.json")
 
+/* 
+ * Funktion um einen Trade mit den angegebenen Parametern zu erzeugen.
+ * callback liefert das erzeugte TradeItem zurück
+ */
 function createStockExchange (call, callback) {
     const tradeItem = {
         "id": tradeItems.length + 1,
@@ -27,10 +32,13 @@ function createStockExchange (call, callback) {
         "wert": call.request.wert
     }
     tradeItems.push(tradeItem);
-    eventQueue.push = function() {Array.prototype.push.apply(this, tradeItem); getTrades();};
     callback(null, tradeItem);
 }
 
+/*
+ * Funktion um das Objekt zur TradeNr aus dem Parameter zu erhalten
+ * callback liefert das StockExchangeItem aus dem JSON Array zurück
+ */
 function getStockExchangeInfo (call, callback){
     console.log(call.request);
     
@@ -44,6 +52,10 @@ function getStockExchangeInfo (call, callback){
     callback(null, tradeItems[call.request.tradeNr - 1]);
 }
 
+/*
+ * Funktion liefert alle Trades in einer gewissen Zeitspanne, die im Parameter mit angegeben wurde
+ * Nach einer bestimmten Zeit x beendet sich der Stream.
+ */
 function getTrades (call, callback) {
 
     var anz = tradeItems.length + 1;

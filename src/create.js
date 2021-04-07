@@ -6,7 +6,8 @@ const stockExchangePackage = grpcObject.stockExchangePackage;
 
 const client = new stockExchangePackage.CustomerService("localhost:50051", grpc.credentials.createInsecure());
 
-// Client Aufruf mit Parameter
+// Client Aufruf mit Parametern für Name Typ und Wert
+// Index wird automatisch bestimmt
 const text = process.argv[2];
 const text2 = process.argv[3];
 const text3 = process.argv[4];

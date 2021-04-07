@@ -1,5 +1,6 @@
-## Anwendungsbeispiel
+# Anwendungsbeispiel
 
+### 0. Aufgabe:
 > Ein Client kann beim Server eine Information zu einem Börsengeschäft mit einer Trade-Nr anfragen (Unary RPC).  
 > Ein Client kann beim Server alle Trades anfragen, die von jetzt
 bis in x Minuten getätigt werden. Der Server liefert einen
@@ -10,24 +11,43 @@ implementiert Client und Server.
 >> Simuliert notwendige Logik, so dass unterschiedliche Situationen
 (erfolgreiche Anfrage, Ausnahme) durchgeführt werden können.
 
-```js
+### 1. Anwendung
+
+* Mit `node .\server.js` kann der gRPC Server lokal gestartet werden.
+
+* Mit `node .\create.js <name> <typ> <wert>` kann ein neuer Trade erstellt werden.
+
+* Mit `node .\getExchangeInfo.js <tradeNr>` kann das JSON Objekt zur entsprechenden TradeNr. geliefert werden.
+
+* Mit `node .\getTradesStream <duration>` können alle Trades in den nächsten Sekunden als Stream geliefert werden. Der Parameter *duration* wird in Sekunden angegeben.
+
+### 2. Proto-Datei
+
+```proto
 //Beispiel einer Proto-Datei für das Anwendungsbeispiel
-service Customer {
+syntax = "proto3";
+package stockExchangePackage;
+
+service CustomerService {
+    rpc createStockExchange (StockExchangeModel) returns (StockExchangeModel);
     // Unary Call
-    rpc GetStockExchangeInfo (StockExchangeLookupModel) returns (StockExchangeModel)
-    // server side streaming
-    rpc GetTradesUntil (NewCustomerRequest) returns (stream StockExchangeModel)
+    rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
+    // Server Streaming
+    rpc getTrades (StockExchangeStreamDuration) returns (stream StockExchangeModel);
 }
 
-message StockExchangeLookupModel {
+message StockExchangeLookUpModel {
     int32 tradeNr = 1;
 }
 
-message StockExchangeModel {
-
+message StockExchangeStreamDuration {
+    int32 zeit = 1;
 }
 
-message NewCustomerRequest {
-
+message StockExchangeModel {
+    int32 id = 1;
+    string name = 2;
+    string typ = 3;
+    double wert = 4;
 }
 ```

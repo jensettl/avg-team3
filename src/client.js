@@ -6,8 +6,9 @@ const stockExchangePackage = grpcObject.stockExchangePackage;
 
 const client = new stockExchangePackage.CustomerService("localhost:50051", grpc.credentials.createInsecure());
 
-const changeType = process.argv[2];
 // Client Aufruf mit Parameter
+// changeType: bestimmt ob Unary Call oder ServerSide Streaming
+const changeType = process.argv[2];
 const text = process.argv[3];
 
 switch(changeType){
@@ -23,7 +24,6 @@ switch(changeType){
     case "2":
         const call = client.getTrades();
             call.on("data",item => {
-                // sleep(2000).then(() => { console.log("received item from server" + JSON.stringify(item)); });
                 console.log("received item from server" + JSON.stringify(item));
             })
 
