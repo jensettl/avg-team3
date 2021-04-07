@@ -8,6 +8,7 @@ const client = new stockExchangePackage.CustomerService("localhost:50051", grpc.
 
 const text = process.argv[2];
 
+// Der Client liefert eine TradeNr und erwartet ein JSON Objekt im Response
 client.getStockExchangeInfo(
     {
         "tradeNr": text

@@ -11,6 +11,8 @@ const client = new stockExchangePackage.CustomerService("localhost:50051", grpc.
 const changeType = process.argv[2];
 const text = process.argv[3];
 
+// case1: unary call
+// case2: server side streaming
 switch(changeType){
     case "1": 
         client.getStockExchangeInfo(

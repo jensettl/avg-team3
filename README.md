@@ -1,13 +1,17 @@
 # AVG-Team3
+
+## 0. Einleitung
+
 Dieses Repository wurde für das Modul Anwendung von Geschäftsprozesse erstellt. Es enhält den Code für eine Proto-Datei anhand der ein gRPC-Server generiert wurde. Die Anwendungslogik haben wir auf Basis des Anwendungsfalls entwickelt. Die Anfragen des Clients an den Server sollen sowohl Unary als auch als Stream beantwortet werden können.
 
 Syntax zu Erstellung und Bearbeitung einer **Markdown Datei** findet ihr [hier](https://docs.microsoft.com/en-us/azure/devops/project/wiki/markdown-guidance?view=azure-devops).
 
 ---
 
-## Github benutzen
+## 1. Github benutzen
 
 Alle Informationen stammen aus dem [GitHub Workshop](https://simonkienzler.github.io/git-workshop/) und sind hier stark zusammengefasst.
+
 ### Ablauf bei Änderungen
 
 * Mit `$ git status` kann in der Kommandozeile geprüft werden ob sich etwas verändert hat.
@@ -23,7 +27,7 @@ Alle Informationen stammen aus dem [GitHub Workshop](https://simonkienzler.githu
 
 ---
 
-## GPRC mit Node
+## 2. GPRC mit Node
 
 Dieser Absatz umreist das gelernte zu gRPC, genaueres findet sich auf der offiziellen Website [grpc.io](https://grpc.io/docs/languages/node/quickstart/).
 

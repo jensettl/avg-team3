@@ -12,7 +12,8 @@ const text = process.argv[2];
 const text2 = process.argv[3];
 const text3 = process.argv[4];
 
-
+// Client liefert ein TradeObjekt welches der Server erstellen soll
+// Als Response erhält er das fertige JSON Objekt mit der ermittelten ID
 client.createStockExchange({
     "id": -1,
     "name": text,
