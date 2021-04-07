@@ -6,11 +6,11 @@ const stockExchangePackage = grpcObject.stockExchangePackage;
 
 const client = new stockExchangePackage.CustomerService("localhost:50051", grpc.credentials.createInsecure());
 
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-//   }
+const zeit = process.argv[2];
 
-const call = client.getTrades();
+const call = client.getTrades({
+    "zeit": zeit
+});
 call.on("data",item => {
     // sleep(2000).then(() => { console.log("received item from server" + JSON.stringify(item)); });
     console.log("received item from server" + JSON.stringify(item));

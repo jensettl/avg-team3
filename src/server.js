@@ -45,8 +45,35 @@ function getStockExchangeInfo (call, callback){
 }
 
 function getTrades (call, callback) {
-    tradeItems.forEach(t => call.write(t));
-    call.end();
+
+    var anz = tradeItems.length + 1;
+    var arrayTyp = new Array("Aktie","Wertpapier","Fond");
+    var randTime = Math.random() * (2000 - 200) + 200;
+
+    var zeit = call.request.zeit * 1000;
+    var zähler = 0;
+
+
+    var interval1 = setInterval(function(){
+        if(zähler > zeit){
+            clearInterval(interval1);
+            call.end();
+        }
+
+        zähler = zähler + randTime;
+
+        var randName = Math.random().toString().substr(2,8);
+        var randTyp = Math.floor(Math.random() * 3 + 0);
+        var randWert = Math.floor(Math.random() * (5000 - 1)) + 1;   
+        const tradeItem = {
+            "id": anz,
+            "name": randName,
+            "typ": arrayTyp[randTyp],
+            "wert": randWert
+        }
     
-    // callback(null, eventQueue[eventQueue.length]);
+        anz = anz +1;
+    
+        call.write(tradeItem);
+    },  randTime);
 }

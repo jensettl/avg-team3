@@ -9,13 +9,17 @@ service CustomerService {
     // Unary Call
     rpc getStockExchangeInfo (StockExchangeLookUpModel) returns (StockExchangeModel);
     // Server Streaming
-    rpc getTrades (voidNoParam) returns (stream StockExchangeModel);
+    rpc getTrades (StockExchangeStreamDuration) returns (stream StockExchangeModel);
 }
 
 message voidNoParam {}
 
 message StockExchangeLookUpModel {
     int32 tradeNr = 1;
+}
+
+message StockExchangeStreamDuration {
+    int32 zeit = 1;
 }
 
 message StockExchangeModel {
