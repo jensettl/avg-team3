@@ -51,10 +51,10 @@ service Greeter {
 
 ## 3. Anleitung RPC-Beispiel
 
-* In das Verzeichnis `\src` wechseln.
+* In das Verzeichnis `\src` wechseln
 
-* Den Server starten `node .\server.js`.
+* Den Server starten `node .\server.js`
 
-* Jetzt können in einem anderen Terminal die Client-Funktionen aufgerufen werden.
+* Jetzt können in einem anderen Terminal die Client-Funktionen aufgerufen werden
 * `node .\getExchangeInfo.js X` gibt die Details zum Trade `X` wieder (wenn er vorhanden ist)
-* `node .\getTradesStream.js X` gibt einen Stream mit erstellten Trades wieder für `X` Minuten
+* `node .\getTradesStream.js X` gibt einen Stream mit erstellten Trades wieder für `X` Sekunden
