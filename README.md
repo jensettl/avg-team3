@@ -48,3 +48,13 @@ service Greeter {
 * Mit `node client.js` kann der Aufruf des Clients auf den Server gestartet werden.
 
 * Mit dem Aufruf des Protobuf Compiler `protoc --proto_path=protos --proto_path=third_party --js_out=library=gen,binary:. protos/<protoDateiName>.proto` kann aus der proto-Datei die Basis für den Server als JavaScript Code generiert werden.
+
+## 3. Anleitung RPC-Beispiel
+
+* In das Verzeichnis `\src` wechseln.
+
+* Den Server starten `node .\server.js`.
+
+* Jetzt können in einem anderen Terminal die Client-Funktionen aufgerufen werden.
+* `node .\getExchangeInfo.js X` gibt die Details zum Trade `X` wieder (wenn er vorhanden ist)
+* `node .\getTradesStream.js X` gibt einen Stream mit erstellten Trades wieder für `X` Minuten
