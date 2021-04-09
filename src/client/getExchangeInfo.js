@@ -1,6 +1,6 @@
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
-const packageDef = protoLoader.loadSync("stockExchange.proto", {});
+const packageDef = protoLoader.loadSync("../stockExchange.proto", {});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
 const stockExchangePackage = grpcObject.stockExchangePackage;
 
