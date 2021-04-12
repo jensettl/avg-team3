@@ -14,5 +14,8 @@ client.getStockExchangeInfo(
         "tradeNr": text
     },
     (err, response) => {
-        console.log("Received from Server " + JSON.stringify(response))
+        if(response)
+            console.log("Received from Server " + JSON.stringify(response));
+        else
+            console.log("[ERROR] There was no Trade Object with specified Trade Number");
 });
