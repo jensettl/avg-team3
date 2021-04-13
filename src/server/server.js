@@ -46,8 +46,6 @@ function getStockExchangeInfo (call, callback){
     {
         console.error("Börsengeschäft mit der angegebenen Trade-Nr existiert nicht!")
         callback(new Error("Argument of type number is expected."));
-        // return;
-        // callback();
     }
     else     
         callback(null, tradeItems[call.request.tradeNr - 1]);
